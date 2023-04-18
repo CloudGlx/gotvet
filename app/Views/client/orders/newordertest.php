@@ -309,7 +309,7 @@
 
 
   <form role="form" name="form" id="myform" action="<?=base_url('order/submit')?>" method="POST">
-              <div class="form-group row">
+  <div class="form-group row">
                 <label class="col-lg-3 col-md-12"> Academic level </label>
                 <div class="col-lg-9 col-md-12">
                   <div class="btn-group row opclick" data-toggle="buttons">
@@ -372,9 +372,7 @@
               </div>
 
 
-
-
-         <div class="form-group row">
+              <div class="form-group row">
                 <label for="exampleSelect2" class="col-sm-3">Subject Area</label>
                 <select name="order_subject" class="form-control col-sm-8 custom-select border-default"
                   id="exampleSelect2">
@@ -424,9 +422,7 @@
           </div>
 
 
-
-
-              <div class="form-group row">
+          <div class="form-group row">
                 <label class="col-sm-3" for="order_title">Title</label>
                 <input type="text" name="order_title" class="form-control col-sm-8 border-default" id="order_title"
                   aria-describedby="emailHelp" placeholder="Enter topic" required>
@@ -439,296 +435,15 @@
                   <div class="row">
                     <textarea class="form-control border-default" name="order_instructions" id="editor" required></textarea>
 
+                 
+                  </div>
+                </div>
+              </div>
+
               
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="form-group row">
-                <label for="exampleTextarea" class="col-sm-3">Additional materials </label>
-                <div class="dropzone text-center padding20 col-sm-8">
-                  <div class="dz-message">
-                    <p>Upload files after submiting your order</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group opclick row">
-                <label class="col-sm-3"> Paper format </label>
-                <div class="col-sm-8 btn-group">
-                  <div class="row" data-toggle="buttons">
-                    <label class="col-sm-2 btn btn-default active">
-                      <input type="radio" name="order_citation" value="APA" checked>APA
-                    </label>
-                    <label class="btn btn-default col-sm-2">
-                      <input type="radio" name="order_citation" value="MLA">MLA
-                    </label>
-                    <label class="btn btn-default col-sm-2">
-                      <input type="radio" name="order_citation" value="Havard">Havard
-                    </label>
-                    <label class="btn btn-default col-sm-2">
-                      <input type="radio" name="order_citation" value="Chicago">Chicago
-                    </label>
-                    <label class="btn btn-default col-sm-2">
-                      <input type="radio" name="order_citation" value="Turabian">Turabian
-                    </label>
-                    <label class="btn btn-default col-sm-2">
-                      <input type="radio" name="order_citation" value="Other">Other
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="rc-orderform__step-flag">
-                <h6> 2. PRICING DETAILS </h6>
-              </div>
-              <hr />
-              <div class="form-group row">
-                <label class="col-sm-3">Number of Pages</label>
-                <div class="input-group col-sm-4">
-
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default border-default btn-number" disabled="disabled"
-                      data-type="minus" data-field="order_pages">
-                      <i class="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                  </span>
-                  <input type="text" id="order_pages" name="order_pages" id="order_pages"
-                    class="form-control input-number border-default col-sm-12 text-center" value="1" min="1"
-                    max="100" />
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default border-default btn-number" data-type="plus"
-                      data-field="order_pages">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                  </span>
-                  <br />
-                  <div class="row col-sm-12"> - <div class="float-left wordcount"> 275 </div>
-                    <div class="float-right"> - words approx </div>
-                  </div>
-                  <input id="words" name="words" type="hidden" value="275" />
-                </div>
-
-                <div class="col-sm-5">
-                  <div class="btn-group opclick">
-                    <div class="row" data-toggle="buttons">
-                      <label class="col-sm-6 btn btn-default active">
-                        <input type="radio" name="order_spacing" value="1#Double" checked>Double Spaced
-                      </label>
-                      <label class="btn btn-default col-sm-6">
-                        <input type="radio" name="order_spacing" value="2#Single">Single Spaced
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="form-group opclick row">
-                <label class="col-sm-3"> Currency </label>
-                <div class="col-sm-9 btn-group">
-                  <div class="row col-sm-12" data-toggle="buttons">
-                    <label class="btn btn-default col-sm-2 active">
-                      <input type="radio" id="cc" value="1#USD" name="order_currency" checked>USD
-
-                    </label>
-
-                    <label class="btn btn-default col-sm-2">
-                      <input type="radio" id="a1" value="0.88#GBP" name="order_currency">GBP
-                    </label>
-                    <label class="btn btn-default col-sm-2">
-                      <input type="radio" id="a1" value="1.3#EUR" name="order_currency">EUR
-                    </label>
-                    <label class="btn btn-default col-sm-2">
-                      <input type="radio" id="a1" value="1.3#AUD" name="order_currency">AUD
-                    </label>
-
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="form-group row">
-                <label class="col-sm-3">Sources</label>
-                <div class="input-group col-sm-5">
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default border-default btn-number" disabled="disabled"
-                      data-type="minus" data-field="order_sources">
-                      <i class="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                  </span>
-                  <input type="text" id="order_sources" name="order_sources"
-                    class="form-control border-default input-number col-sm-12 text-center" value="0" min="1" max="100">
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-number border-default" data-type="plus"
-                      data-field="order_sources">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                  </span>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label class="col-sm-3">PowerPoint Slides</label>
-                <div class="input-group col-sm-5">
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default border-default btn-number" disabled="disabled"
-                      data-type="minus" data-field="order_pptslides">
-                      <i class="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                  </span>
-                  <input type="text" id="order_pptslides" name="order_pptslides"
-                    class="form-control border-default input-number col-sm-12 text-center" value="0" min="0" max="50">
-                  <input type="hidden" id="config_priceperslide" name="config_priceperslide" value="4">
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-number border-default" data-type="plus"
-                      data-field="order_pptslides">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                  </span>
-                </div>
-              </div>
-
-
-              <div class="form-group opclick row">
-                <label class="col-lg-3 col-md-12"> Deadline </label>
-                <div class="col-lg-9 col-md-12 btn-group">
-                  <div class="row" data-toggle="buttons">
-
-                    <label class="btn btn-default col-sm-2 ">
-                      <input type="radio" id="a1" value="24.23#6 Hours" name="order_deadline">6 Hours
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 active">
-                      <input type="radio" id="a1" value="21.14#24 Hours" name="order_deadline" checked>24 Hours
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 ">
-                      <input type="radio" id="a1" value="17#48 Hours" name="order_deadline">48 Hours
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 ">
-                      <input type="radio" id="a1" value="15.45#3 Days" name="order_deadline">3 Days
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 active">
-                      <input type="radio" id="a1" value="14.23#4 Days" name="order_deadline" checked>4 Days
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 ">
-                      <input type="radio" id="a1" value="13.41#5 Days" name="order_deadline">5 Days
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 ">
-                      <input type="radio" id="a1" value="12.5#6 Days" name="order_deadline">6 Days
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 ">
-                      <input type="radio" id="a1" value="12.43#7 Days" name="order_deadline">7 Days
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 ">
-                      <input type="radio" id="a1" value="12.63#8 Days" name="order_deadline">8 Days
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 ">
-                      <input type="radio" id="a1" value="12.23#14 Days" name="order_deadline">14 Days
-                    </label>
-
-                    <label class="btn btn-default col-sm-2 ">
-                      <input type="radio" id="a1" value="16.01#24 Days" name="order_deadline">24 Days
-                    </label>
-
-
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="form-group row">
-                <label class="col-sm-3" for="order_title"></label>
-                <div class="col-sm-8"><small>
-                    <div class="newdeadline"></div>
-                  </small></div>
-              </div>
-
-
-
-
-              <div class="form-group opclick row">
-                <label class="col-lg-3 col-md-12"> Writer category </label>
-                <div class="col-lg-9 col-md-12 btn-group">
-                  <div class="row" data-toggle="buttons">
-
-
-                    <label class="btn text-center btn-default col-sm-4 active">
-                      <input type="radio" name="order_wquality" value="1#Standard" checked>
-
-                      <h6> Standard </h6>
-                      <hr />
-                      <small> Standard Price writers</small>
-                    </label>
-                    <label class="btn text-center btn-default col-sm-4 ">
-                      <input type="radio" name="order_wquality" value="1.25#Premium">
-
-                      <h6> Premium </h6>
-                      <hr />
-                      <small> High-rank professional writer,<br /> proficient in <br /> the requested field of
-                        study</small>
-                    </label>
-                    <label class="btn text-center btn-default col-sm-4 ">
-                      <input type="radio" name="order_wquality" value="1.35#Platinum">
-
-                      <h6> Platinum </h6>
-                      <hr />
-                      <small> English as a native <br /> language writer <br />(US, UK, CA, AU writers)<br /> </small>
-                    </label>
-
-                  </div>
-                </div>
-              </div>
-
-            
-
-
-      
-
-
-              <div class="form-group">
-                <input type="hidden" name="order_clientid" class="form-control border-default" value="">
-                <input type="hidden" name="client_email" value="<?=session()->get('email')?>">
-                <input type="hidden" name="fname" value="<?=session()->get('fname')?>">
-                <input type="hidden" name="lname" value="<?=session()->get('lname')?>">
-                <input type="hidden" name="regnum" value="<?=session()->get('regnum')?>">
-              </div>
-
-              <input id="order_amount" class="form-control fontbig form-control-plaintext" type="hidden"
-                name="order_amount" value="$" id="example-text-input">
-              <div id="subcontact" class="form-group">
-
-              </div>
-        
-
-
-
-
-
-            <div id="signlogin">
-              <div class="rc-orderform__step-flag">
-                <h6> 3. Submit</h6>
-              </div>
-              <hr />
-             </div>
 
   
-      <input class="btn col-sm-12 btn-warning" type="submit" name="submit_order" value="Submit">
+      <input class="btn col-sm-12 btn-warning" type="submit" name="submit_orde" value="Submit o">
 
  </form>
 
@@ -817,11 +532,6 @@
     }
 
   </script>
-
-
-
-
-
 
   <script type="text/javascript">
 

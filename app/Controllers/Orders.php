@@ -176,6 +176,13 @@ class Orders extends BaseController
     //NEW ORDER SUBMIT FUNCTION
     public function order_submit()
     {
+        $check=$this->request->getPost('submit_order');
+        if(!isset($check)){
+         echo "this";
+           // return redirect()->to('order_new')->with('error', 'Wrong path!!');
+            exit(0);
+        }
+
         //GET USER DATA
         $level = $this->request->getPost('ops_aclevel');
         $type = $this->request->getPost('order_tpaper');
@@ -299,7 +306,7 @@ class Orders extends BaseController
 
         $OrderModel = new OrdersModel();
         $query = $OrderModel->insert($newdata);
-        //$res=sendsms($AdmPhone, $SmsBody);
+       // $res=sendsms($AdmPhone, $SmsBody);
         MailOrderPlace($fname,$email);
         return redirect()->to('client')->with('success', 'Order Placed successfully');
     }

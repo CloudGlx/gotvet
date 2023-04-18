@@ -75,21 +75,21 @@ function MailOrderPlace($fname, $email)
     $mail->isHTML(true);
     /**EMAIL CONST END */
 
-    $EmailToName = "Astute Writers";
+    $EmailToName = "TopNotch Writers";
     $body = '
 <!Doctype hmtl>
 <html lang="en">
 
 <body>
     <div class="wrapper">
-    <img src="https://www.toplineessay.com/images/email.png">
+    <img src="https://topnotchessaywriters.com/images/logo.png">
 <p> Hi ' . $fname . '<p>
 
         <p>
 
-        We have successfully received your order placed on <a href="www.toplineessay.com">Topline Essays</a>. <br><br> Please login to your dashboard and upload all necessarily documents -->
+        We have successfully received your order placed on <a href="http://orders.topnotchessaywriters.com">TopNotch Writers</a>. <br><br> Please login to your dashboard and upload all necessarily documents -->
 
-            <span> <a href="https://toplineessay.com/users">Login  </a> <span>
+            <span> <a href=" ">Login  </a> <span>
         </p>
 
     </div>
@@ -97,7 +97,7 @@ function MailOrderPlace($fname, $email)
 </html>
 ';
 
-    $mail->setFrom(SERVEREMAIL, 'Astute_Writers');
+    $mail->setFrom(SERVEREMAIL, 'Top Notch');
     $mail->addAddress($email, $EmailToName);
     $mail->msgHTML($body);
     $mail->send();
