@@ -372,8 +372,6 @@
               </div>
 
 
-
-
          <div class="form-group row">
                 <label for="exampleSelect2" class="col-sm-3">Subject Area</label>
                 <select name="order_subject" class="form-control col-sm-8 custom-select border-default"
@@ -423,9 +421,6 @@
                 </select>
           </div>
 
-
-
-
               <div class="form-group row">
                 <label class="col-sm-3" for="order_title">Title</label>
                 <input type="text" name="order_title" class="form-control col-sm-8 border-default" id="order_title"
@@ -438,13 +433,9 @@
                 <div class="col-sm-8">
                   <div class="row">
                     <textarea class="form-control border-default" name="order_instructions" id="editor" required></textarea>
-
-              
                   </div>
                 </div>
               </div>
-
-
 
               <div class="form-group row">
                 <label for="exampleTextarea" class="col-sm-3">Additional materials </label>
@@ -646,7 +637,7 @@
 
 
 
-                  </div>
+        7          </div>
 
                 </div>
 

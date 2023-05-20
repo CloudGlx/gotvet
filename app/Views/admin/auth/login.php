@@ -26,7 +26,7 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="https://astutewriters.net/wp-content/uploads/2022/04/diploma-parchment-graduation-152024-50x45.png" alt="logo">
+                <img src="" alt="logo">
               </div>
               <h4>Admin Login</h4>
 
