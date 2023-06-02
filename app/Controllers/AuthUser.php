@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Libraries\Hash;
 use App\Models\ClientsModel;
 use App\Models\AdminModel;
+use App\Models\StudentsModel;
 use CodeIgniter\I18n\Time;
 
 class AuthUser extends BaseController
@@ -16,9 +17,9 @@ class AuthUser extends BaseController
     helper(['Code_helper', 'Email_helper', 'Sms_helper', 'text', 'url']);
   }
 
-  public function userLoginView()
+  public function StudentLoginView()
   {
-    return view('client/auth/login');
+    return view('students/auth/login');
   }
   //LOGIN 
   public function userLogin()
@@ -38,11 +39,11 @@ class AuthUser extends BaseController
 
     if (!$this->validate($rules, $errors)) {
       $data['validation'] = $this->validator;
-      echo view('client/auth/login', $data);
+      echo view('students/auth/login', $data);
     } else {
       //LOGIN USER
-      $model = new ClientsModel();
-      $client = $model->where('email', $this->request->getVar('email'))
+      $model = new StudentsModel();
+      $client = $model->where('Email', $this->request->getVar('email'))
         ->first();
 
       $this->setUserSession($client);
@@ -54,10 +55,10 @@ class AuthUser extends BaseController
   {
     $data = [
       'id'                      =>  $client['id'],
-      'fname'                   =>  $client['fname'],
-      'lname'                   =>  $client['lname'],
-      'email'                   =>  $client['email'],
-      'regnum'                  =>  $client['registerno'],
+      'fname'                   =>  $client['FirstName'],
+      'lname'                   =>  $client['LastName'],
+      'email'                   =>  $client['Email'],
+      'regnum'                  =>  $client['StudentID'],
       'client_is_logged_in'     =>  true,
 
     ];
@@ -82,7 +83,7 @@ class AuthUser extends BaseController
     ];
     if (!$this->validate($rules)) {
       $data['validation'] = $this->validator;
-      echo view('client/auth/register', $data);
+      echo view('students/auth/register', $data);
     } else {
 
       //INSERT DATA TO DATABASE
@@ -130,7 +131,7 @@ class AuthUser extends BaseController
   public function userRegisterView()
   {
 
-    return view('client/auth/register');
+    return view('students/auth/register');
   }
 
   //forgot pass USER VIEW

@@ -1,7 +1,7 @@
 
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="#"><img src="<?=base_url()?>/public/assets/images/logo4.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="#"><img src="<?=base_url()?>/public/assets/images/GO.png" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="#"><img src="<?=base_url()?>/public/assets/images/logo-mini.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -25,12 +25,12 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item d-none d-lg-flex">
             <a class="nav-link" href="<?=base_url('')?>">
-            <a href="<?=base_url('order_new')?>" ><span class="btn btn-primary">All Orders</span></a>
+            <a href="#" ><span class="btn btn-primary">Reports</span></a>
             </a>
           </li>
 
           <li class="nav-item d-none d-lg-flex">
-            <a class="nav-link" href="<?=base_url('')?>">
+            <a class="nav-link" href="#">
               <span class="btn btn-success">Wallet: 0<span>$</span></span>
             </a>
           </li>
@@ -152,7 +152,7 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="<?=base_url()?>/public/assets/images/faces/face5.jpg" alt="profile"/>
+              <img src="<?=base_url()?>/public/assets/images/gotvet.jpg" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a href="<?=base_url('admineditprofile/'.session()->get('id'))?>" class="dropdown-item">

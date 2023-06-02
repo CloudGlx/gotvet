@@ -26,9 +26,9 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="" alt="logo">
+              
               </div>
-              <h4>Admin Login</h4>
+              <h4>GoTvet Admin</h4>
 
               <form class="pt-3" method="POST" action="<?= base_url('adminlogin') ?>">
                 <?php if (isset($validation)) : ?>

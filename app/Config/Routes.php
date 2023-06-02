@@ -32,9 +32,10 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 //USER ROUTES
 $routes->add('register_acct','AuthUser::userRegisterView');
+
 $routes->add('user/reg','AuthUser::userRegister');
-$routes->add('userlogin','AuthUser::userLoginView');
-$routes->add('user/login','AuthUser::userLogin');
+$routes->add('student_login','AuthUser::StudentLoginView');
+$routes->add('student/login','AuthUser::userLogin');
 $routes->add('user_logout','AuthUser::userLogout');
 $routes->add('client','Client::dashboard',['filter'=>'authclient']);
 $routes->add('email_support','Email::sendmail_view',['filter'=>'authclient']);
@@ -80,7 +81,33 @@ $routes->add('download_file/(:num)','Admin::file_download/$1',['filter'=>'authad
 $routes->add('completed_orders','Admin::Completed_Orders',['filter'=>'authadmin']);
 
 
+//GOTVET ADMIN ROUTES
+$routes->add('all_students','Admin::all_students',['filter'=>'authadmin']);//student
+$routes->add('new_student','Admin::new_students',['filter'=>'authadmin']);//student
+$routes->add('enrolled','Admin::enrolled_students',['filter'=>'authadmin']);//student
+$routes->add('approved','Admin::approved_students',['filter'=>'authadmin']);//student
+$routes->add('all_courses','Admin::all_courses',['filter'=>'authadmin']);//student courses
+//REPORTS routes
+$routes->add('rpt_ins','Admin::rpt_ins',['filter'=>'authadmin']);//
+$routes->add('rpt_courses','Admin::rpt_courses',['filter'=>'authadmin']);//
+$routes->add('rpt_stdnt_accounts','Admin::rpt_stdnt_accounts',['filter'=>'authadmin']);
+$routes->add('rpt_stdnt_enrolled','Admin::rpt_stdnt_enrolled',['filter'=>'authadmin']);//
+
+//routes->add('view_student','Admin::view_student',['filter'=>'authadmin']);//student
+$routes->add('all_insitutes','Admin::all_insitutes',['filter'=>'authadmin']);//inst
+$routes->add('poly_insitutes','Admin::poly_insitutes',['filter'=>'authadmin']);//inst
+$routes->add('tt_insitutes','Admin::tt_insitutes',['filter'=>'authadmin']);//inst
+$routes->add('uni_insitutes','Admin::uni_insitutes',['filter'=>'authadmin']);//inst
+$routes->add('inst_view/(:num)','Admin::inst_singleView/$1',['filter'=>'authadmin']);//inst
+$routes->add('view_student/(:num)','Admin::OneStudentView/$1',['filter'=>'authadmin']);// one student view
+$routes->add('std/status','Admin::student_status',['filter'=>'authadmin']);//student update status
+$routes->add('send/sigle_sms','Admin::SendSingle_sms',['filter'=>'authadmin']);//send sms
+
+
+
 /*
+
+$routes->add('all_clients','Admin::all_clients',['filter'=>'authadmin']);//CLIENT
  * --------------------------------------------------------------------
  * Additional Routing
  * --------------------------------------------------------------------

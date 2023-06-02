@@ -4,7 +4,9 @@ namespace App\Controllers;
 
 use App\Models\ClientsModel;
 use App\Models\FilesModel;
+use App\Models\InsitutesModel;
 use App\Models\OrdersModel;
+use App\Models\StudentsModel;
 use PhpParser\Node\Expr\FuncCall;
 
 class Admin extends BaseController
@@ -19,11 +21,57 @@ class Admin extends BaseController
         return view('admin/dashboard');
     }
     //VIEW ALL ORDERS
-    public function admin_allorders()
+    public function all_insitutes()
     {
-        return view('admin/orders/all_orders');
+        return view('admin/insitutes/inst');
+    }
+
+    public function uni_insitutes()
+    {
+        return view('admin/insitutes/uni');
+    }
+
+    public function poly_insitutes()
+    {
+        return view('admin/insitutes/pol');
+    }
+
+    public function tt_insitutes()
+    {
+        return view('admin/insitutes/tt');
+    }
+//view
+    public function inst_singleView($tid){
+        $req = new InsitutesModel();
+        $data['data'] = $req->find($tid);
+        return view('admin/insitute/inst_singleview', $data);
+    }
+//edit
+    public function uni_singleEdit(){
+        
     }
     //VIEW SINGLE ORDERS
+    //sigle studen
+    public function OneStudentView($tid)
+    {
+        $req = new StudentsModel();
+        $data['data'] = $req->find($tid);
+        return view('admin/accounts/view_student', $data);
+    }
+    public function enrolled_students(){
+        $students = new StudentsModel();
+        $data['data'] = $students->where('isenrolled',1)->findAll();
+        return view('admin/accounts/enrolled', $data);
+    }
+
+    public function approved_students(){
+
+    }
+
+    public function all_courses(){
+
+    }
+
     public function admin_single_order($tid)
     {
         $sdata = [
@@ -36,6 +84,46 @@ class Admin extends BaseController
         $data['data'] = $request->find($tid);
         return view('admin/orders/vieworder', $data);
     }
+
+    //UPDATE STUDENT STSUS
+    public function student_status()
+    {
+        // return view('admin/orders/pending');
+    }
+    //send single sms
+    public function SendSingle_sms()
+    {
+        $check=$this->request->getPost('submit');
+        if(!isset($check)){
+         echo "this";
+           // return redirect()->to('order_new')->with('error', 'Wrong path!!');
+            exit(0);
+        }
+
+        //GET USER DATA
+        $phone = $this->request->getPost('phone');
+        $senderid = $this->request->getPost('senderid');
+        $smsbody = $this->request->getPost('smsbody');
+        $stdid = $this->request->getPost('studentid');
+
+    $data= sendsms($phone,$smsbody);
+         //  $data = sendsms($phone, $MsgBody);
+    $res = json_decode($data, true);
+
+   $ReCode = $res['responses'][0]['response-code'];
+   $ReDec = $res['responses'][0]['response-description'];
+       if ($ReCode==200){
+       return redirect()->to('view_student/'.$stdid)->with('success', 'Sms sent successfully');
+       }
+       else{
+        return redirect()->to('view_student/'.$stdid)->with('error', 'Sms Not sent!! '.$ReDec.'');
+       }
+ 
+
+        //return redirect()->to('view_student/'.$stdid)->with('error', 'Wrong path!!');
+    }
+
+
     //PENDING ORDERS
     public function pending_orders()
     {
@@ -46,12 +134,12 @@ class Admin extends BaseController
     {
         return view('admin/orders/inprogress');
     }
-    //VIEW ALL CLINETS
-    public function all_clients()
+    //VIEW ALL STUDENTS
+    public function all_students()
     {
-        $clients = new ClientsModel();
+        $clients = new StudentsModel();
         $data['data'] = $clients->findAll();
-        return view('admin/accounts/all_clients', $data);
+        return view('admin/accounts/all_students', $data);
     }
     //SINGLE CLIENT
     public function admin_single_client($tid)
@@ -80,6 +168,27 @@ class Admin extends BaseController
     {
         return view('admin/orders/cancelled');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //FILE DOWNLOAD
     public function file_download($tid)
     {

@@ -60,7 +60,6 @@ $id = session()->get('regnum');
             </div>
             <!-- partial -->
             <?= $this->include('layouts/admin_leftbar') ?>
-
             <?= $this->include('layouts/admin_sidebar') ?>
             <!-- partial -->
             <div class="main-panel">
@@ -84,7 +83,7 @@ $id = session()->get('regnum');
                                         <div class="statistics-item">
                                             <p>
                                                 <i class="icon-sm fa fa-user mr-2"></i>
-                                                Total orders
+                                                Total vistors
                                             </p>
 
                                             <h2><?php
@@ -92,23 +91,23 @@ $id = session()->get('regnum');
                                                 $query = $db->query('SELECT * FROM orders');
                                                 echo $query->getNumRows();
                                                 ?></h2>
-                                            <a href="<?= base_url('') ?>"> <label class="badge badge-outline-success badge-pill">View Staff</label> </a>
+                                            <a href="#"> <label class="badge badge-outline-success badge-pill">View Staff</label> </a>
                                         </div>
                                         <div class="statistics-item">
                                             <p>
                                                 <i class="icon-sm fas fa-hourglass-half mr-2"></i>
-                                                In progress
+                                                Insitutes
                                             </p>
                                             <h2><?php
-                                                $query = $db->query('SELECT * FROM orders WHERE OrderStatus=1');
+                                                $query = $db->query('SELECT * FROM institutes');
                                                 echo $query->getNumRows();
                                                 ?></h2>
-                                            <a href="<?= base_url('') ?>"> <label class="badge badge-outline-danger badge-pill">In Progress</label></a>
+                                            <a href="<?= base_url('all_insitutes') ?>"> <label class="badge badge-outline-danger badge-pill">View</label></a>
                                         </div>
                                         <div class="statistics-item">
                                             <p>
                                                 <i class="icon-sm fas fa-check-circle mr-2"></i>
-                                                Completed
+                                                Accounts
                                             </p>
                                             <h2><?php
                                                 $query = $db->query('SELECT * FROM orders WHERE OrderStatus=4');
@@ -119,7 +118,7 @@ $id = session()->get('regnum');
                                         <div class="statistics-item">
                                             <p>
                                                 <i class="icon-sm fas fa-edit mr-2"></i>
-                                                In Review
+                                                Enrolled
                                             </p>
                                             <h2><?php
                                                 $query = $db->query('SELECT * FROM orders WHERE OrderStatus=3');
@@ -130,7 +129,7 @@ $id = session()->get('regnum');
                                         <div class="statistics-item">
                                             <p>
                                                 <i class="icon-sm fas fa-circle-notch mr-2"></i>
-                                                Rejected
+                                                Approved
                                             </p>
                                             <h2><?php
                                                 $query = $db->query('SELECT * FROM orders WHERE OrderStatus=2');
@@ -142,7 +141,7 @@ $id = session()->get('regnum');
                                             <p>
 
                                                 <i class="icon-sm fas fa-times mr-2"></i>
-                                                Cancelled
+                                                Rejected
                                             </p>
                                             <h2><?php
                                                 $query = $db->query('SELECT * FROM orders WHERE OrderStatus=5');
@@ -162,24 +161,24 @@ $id = session()->get('regnum');
                                 <div class="card-body">
                                     <h4 class="card-title">
                                         <i class="fas fa-envelope"></i>
-                                        latest Orders
+                                        latest Accounts
                                     </h4>
                                     <div class="table-responsive">
 
 
                                         <?php
-                                        $query = $db->query("SELECT * FROM orders WHERE OrderStatus=0 ORDER BY ID DESC LIMIT 3");
+                                        $query = $db->query("SELECT * FROM students WHERE id >=0 ORDER BY ID DESC LIMIT 3");
                                         ?>
                                         <table id="order-listing" class="table">
                                             <thead>
                                                 <tr class="bg-info text-white">
-                                                    <th>Id</th>
-                                                    <th>OrderId</th>
-                                                    <th>Acedemic level</th>
-                                                    <th>Paper type</th>
-                                                    <th>subject</th>
-                                                    <th>Status</th>
-                                                    <th>Action</th>
+                                                     <th>Id</th>
+                                                    <th>FirstName</th>
+                                                    <th>LastName</th>
+                                                    <th>Phone</th>
+                                                    <th>Email</th>
+
+                                                    <th>View</th>
 
                                                 </tr>
                                             </thead>
@@ -188,28 +187,16 @@ $id = session()->get('regnum');
                                                 foreach ($query->getResult('array') as $row) : ?>
                                                     <tr>
                                                         <td><?php echo $i++ ?></td>
-                                                        <td><?= $row['OrderId'] ?></td>
-                                                        <td><?= $row['AcademicLevel'] ?></td>
-                                                        <td><?= $row['PaperType'] ?></td>
+                                                        <td><?= $row['FirstName'] ?></td>
+                                                        <td><?= $row['SecondName'] ?></td>
+                                                        <td><?= $row['Phone'] ?></td>
 
-                                                        <td><?= $row['Subject'] ?></td>
-                                                        <td>
-                                                            <?php if ($row['OrderStatus'] == 0) : ?>
-                                                                <label class="badge badge-primary"> Waiting Approval </label>
+                                                        <td><?= $row['Email'] ?></td>
+                                                   
 
-                                                            <?php elseif ($row['OrderStatus'] == 1) : ?>
-                                                                <label class="badge badge-warning">In progress</label>
-                                                            <?php elseif ($row['OrderStatus'] == 2) : ?>
-                                                                <label class="badge badge-">Deferred </label>
-                                                            <?php elseif ($row['OrderStatus'] == 3) : ?>
-                                                                <label class="badge badge-danger">Rejected</label>
-                                                            <?php elseif ($row['OrderStatus'] == 4) : ?>
-                                                                <label class="badge badge-success">Completed</label>
-                                                            <?php endif ?>
-                                                        </td>
 
                                                         <td>
-                                                            <a href="<?= base_url('vieworder/' . $row['OrderId']) ?>"> <i class="fa fa-eye"></i></a>
+                                                            <a href="<?= base_url('view_student/' . $row['StudentID']) ?>"> <i class="fa fa-eye"></i></a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -228,7 +215,7 @@ $id = session()->get('regnum');
                                 <div class="card-body">
                                     <h4 class="card-title">
                                         <i class="fas fa-table"></i>
-                                        Recent Transactions
+                                        Recent Registration
                                     </h4>
                                     <div class="table-responsive">
                                         <?php
