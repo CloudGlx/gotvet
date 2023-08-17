@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Libraries\Hash;
 use App\Models\ClientsModel;
 use App\Models\AdminModel;
+use App\Models\EducationModel;
 use App\Models\StudentsModel;
 use CodeIgniter\I18n\Time;
 
@@ -14,7 +15,7 @@ class AuthUser extends BaseController
 
   public function __construct()
   {
-    helper(['Code_helper', 'Email_helper', 'Sms_helper', 'text', 'url']);
+    helper(['Code_helper', 'Email_helper', 'Sms_helper', 'text', 'url', 'Webhook_helper']);
   }
 
   public function StudentLoginView()
@@ -22,44 +23,48 @@ class AuthUser extends BaseController
     return view('students/auth/login');
   }
   //LOGIN 
-  public function userLogin()
+  public function StudentLogin()
   {
     $rules = [
 
-      'email'      =>  'required|valid_email',
-      'password'   =>  'required|min_length[4]|max_length[20]|validateUser[email,password]',
+      'gotvetid'      =>  'required',
+      'password'   =>  'required|min_length[4]|max_length[30]|validateStudent[gotvetid,password]',
 
     ];
     $errors = [
       'password' => [
-        'validateUser' => 'Email or password incorrect'
+        'validateStudent' => 'GOTVET ID Or Password Incorrect'
       ]
 
     ];
 
     if (!$this->validate($rules, $errors)) {
       $data['validation'] = $this->validator;
-      echo view('students/auth/login', $data);
+      echo view('student/auth/login', $data);
     } else {
       //LOGIN USER
       $model = new StudentsModel();
-      $client = $model->where('Email', $this->request->getVar('email'))
+      $student = $model->where('GotvetId', $this->request->getVar('gotvetid'))
         ->first();
 
-      $this->setUserSession($client);
-      return redirect()->to('client');
+      $this->setUserSession($student);
+      return redirect()->to('stud_dashboard');
     }
   }
 
-  private function SetUserSession($client)
+  private function SetUserSession($student)
   {
     $data = [
-      'id'                      =>  $client['id'],
-      'fname'                   =>  $client['FirstName'],
-      'lname'                   =>  $client['LastName'],
-      'email'                   =>  $client['Email'],
-      'regnum'                  =>  $client['StudentID'],
-      'client_is_logged_in'     =>  true,
+      'id'                      =>  $student['id'],
+      'FirstName'               =>  $student['FirstName'],
+      'SecondName'              =>  $student['LastName'],
+      'Email'                   =>  $student['Email'],
+      'GotvetId'                =>  $student['GotvetId'],
+      'isvarified'              =>  $student['isvarified'],
+      'Phone'                   =>  $student['Phone'],
+      'isprofilecompleted'      =>  $student['isprofilecompleted'],
+      'UpdateLevel'             =>  $student['UpdateLevel'],
+      'student_is_logged_in'     =>  true,
 
     ];
 
@@ -69,69 +74,101 @@ class AuthUser extends BaseController
 
 
   //REGISTER USER ACTION
-  public function userRegister()
+  public function StudentRegister()
   {
     $data = [];
 
     $rules = [
       'First_Name'         =>  'required|min_length[3]',
-      'Last_Name'          =>  'required|min_length[3]',
-      'Email'              =>  'required|valid_email|is_unique[clients.email]',
+      'Second_Name'        =>  'required|min_length[3]',
+      'Email'              =>  'required|valid_email|is_unique[students.Email]',
+      'Phone'              =>  'required|is_unique[students.Phone]|min_length[10]',
       'Password'           =>  'required|min_length[4]|max_length[20]',
       'Confirm_Password'   =>  'required|matches[Password]'
 
     ];
     if (!$this->validate($rules)) {
       $data['validation'] = $this->validator;
-      echo view('students/auth/register', $data);
+      echo view('student/auth/register', $data);
     } else {
 
       //INSERT DATA TO DATABASE
       //GET USER DATA
       $fname = $this->request->getPost('First_Name');
-      $lname = $this->request->getPost('Last_Name');
+      $sname = $this->request->getPost('Second_Name');
       $email = $this->request->getPost('Email');
+      $phone= $this->request->getPost('Phone');
       $pass = $this->request->getPost('Confirm_Password');
       $date = new Time('now', 'Africa/Nairobi', 'en_US');
+      $updatelevel=0;
+
+      $fname=strtoupper($fname);
+      $sname=strtoupper($sname);
+//MAKE PHONE 
+$phone = (substr($phone, 0, 1) == "+") ? str_replace("+", "", $phone) : $phone;
+$phone = (substr($phone, 0, 1) == "0") ? preg_replace("/^0/", "254", $phone) : $phone;
+$phone = (substr($phone, 0, 1) == "7") ? "254{$phone}" : $phone;
 
 
       //HASH USER PASSWORD
       $passhash = new Hash();
       $newpassword = $passhash->encrypt($pass);
 
-
       //CLIENT ID
 
-      $id = randomNum();
-
+       $gotvetid = GotvetId();
+       $profile=0;
       //INSER DATA
       $newdata = [
-        'fname'        =>  $fname,
-        'lname'        =>  $lname,
-        'email'        =>  $email,
-        'password'     =>  $newpassword,
-        'registerno'   =>  $id,
-        'date_created' => $date
+        'FirstName'    =>  $fname,
+        'SecondName'   =>  $sname,
+        'Phone'         => $phone,
+        'Email'        =>  $email,
+        'Password'     =>  $newpassword,
+        'GotvetId'     =>  $gotvetid,
+        'UpdateLevel'  =>  $updatelevel,
+        'isprofilecompleted' =>$profile,
+        'DateCreated' => $date
+       ];
 
+       $edudata=[
+        'FirstName' =>$fname,
+        'GotvetId'  =>$gotvetid
+       ];
 
-      ];
+       $apidata=[
+        'FirstName'    =>$fname,
+        'Phone'        =>$phone,
+        'Email'        =>$email,
+        'GotvetId'     =>$gotvetid,
+       ];
+//insert dataa to student
+      $StudentModel = new StudentsModel();
+      $query = $StudentModel->insert($newdata);
+//inset data to education
+$edu=new EducationModel();
+$query=$edu->insert($edudata);
 
-      $ClientModel = new ClientsModel();
-      $query = $ClientModel->insert($newdata);
-      MailAcctCreate($fname, $email);
-      return redirect()->to('userlogin')->with('success', 'Account Created successfully');
-    }
+     // MailAcctCreate($fname, $email);
+     $url=base_url('reg/Api');
+
+     $response = sendPayloadToEndpoint($url,$apidata);
+    
+      // Request successful
+      return redirect()->to('stud_login')->with('success', 'Account successfully created. SMS sent  to your provided phone number with your Gotvet ID.');
+ 
+     
+     // return redirect()->to('stud_login')->with('success', 'Account Created successfully');
+}
+    
   }
-
-
-
 
 
   //REGISTER USER VIEW
   public function userRegisterView()
   {
 
-    return view('students/auth/register');
+    return view('student/auth/register');
   }
 
   //forgot pass USER VIEW
@@ -142,10 +179,10 @@ class AuthUser extends BaseController
   }
 
 
-  public function userLogout()
+  public function student_logout()
   {
     //session_destroy();
     session()->destroy();
-    return redirect()->to('userlogin');
+    return redirect()->to('stud_login');
   }
 }

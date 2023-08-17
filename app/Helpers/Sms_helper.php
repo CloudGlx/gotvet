@@ -4,10 +4,10 @@
    
             $data= [
         
-                "apikey"        => "b4368bb35b50907e07337ebff26be508",
-                "partnerID"    => "6356",  //6356
+                "apikey"        => "119323ba4448f39ef6955e9c144ef496",
+                "partnerID"    => "7797",  //6356
                 "message"      => $body,
-                "shortcode"    => "CloudGalaxy",
+                "shortcode"    => "TextSMS",
                 "mobile"       => $phone
                ];
             //endpoint

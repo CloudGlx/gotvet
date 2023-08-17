@@ -1,8 +1,8 @@
 <?php
 $db = db_connect();
-$id = session()->get('regnum');
-$email = session()->get('email')
+$gotvetid = session()->get('GotvetId');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ $email = session()->get('email')
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>All Accounts</title>
+  <title>Admin::All_Insituts</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?= base_url() ?>/public/assets/vendors/iconfonts/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>/public/assets/vendors/css/vendor.bundle.base.css">
@@ -28,11 +28,7 @@ $email = session()->get('email')
 
 <body>
   <div class="container-scroller">
-
-
-    <!-- partial:../../partials/_navbar.html -->
-
-    <?= $this->include('layouts/admin_navbar') ?>
+  <?= $this->include('layouts/student_navbar') ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_settings-panel.html -->
@@ -61,21 +57,19 @@ $email = session()->get('email')
       </div>
 
       <!-- partial -->
-      <?= $this->include('layouts/admin_leftbar') ?>
-
-      <?= $this->include('layouts/admin_sidebar') ?>
-      <!-- partial -->
+      <?= $this->include('layouts/leftbar') ?>
+            <?= $this->include('layouts/student_sidebar') ?>
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
             <h3 class="page-title">
-             Enrolled Students
+             All Institutes
             </h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= base_url('new_student') ?>">New Student</a></li>
+                <li class="breadcrumb-item"><a href="#">GoTvet</a></li>
 
-                <li class="breadcrumb-item active" aria-current="page">Accounts</li>
+                <li class="breadcrumb-item active" aria-current="page">All</li>
               </ol>
             </nav>
           </div>
@@ -85,40 +79,48 @@ $email = session()->get('email')
               <?= session()->get('success') ?>
             </div>
           <?php endif; ?>
+
+
           <div class="card">
             <div class="card-body">
-    
+       
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
+
+                    
                     <table id="order-listing" class="table">
                       <thead>
-                        <tr class="bg-primary text-white">
+                        <tr class="bg-info text-white">
                           <th>Id</th>
-                          <th>Name</th>
+                          <th>PROGRAMME NAME</th>                        
+                          <th>CLUSTER/GROUP</th>
                        
-                          <th>Phone</th>
-                          <th>Email</th>
-                          <th>Location</th>
-                          <th>View</th>
+                        
                         </tr>
                       </thead>
                       <tbody>
                         <?php $i = 1;
-                         foreach ($data as $row) : ?>
+                         foreach ($data as $row) :?>
                           <tr>
+                            
                             <td><?php echo $i++ ?></td>
-                            <td><?= $row['FirstName'] ?> <?= $row['SecondName'] ?>  <?= $row['LastName'] ?></td>
-                          
-                            <td><?= $row['Phone'] ?></td>
-                            <td><?= $row['Email'] ?></td>
-                            <td><?= $row['Location'] ?></td>
+                        <td> <a href="<?= base_url('Prog_view/' . $row['Code']) ?>" style="color: black;"><?= $row['Name'] ?></a> </td> 
                         
-                           
-                     
                             <td>
-                              <a href="<?= base_url('view_student/' . $row['StudentID']) ?>"> <i class="fa fa-eye"></i> </a>
+                              <?php if ($row['Cluster'] == 1) : ?>
+                                <label>Education & Related</label>
+                              <?php elseif ($row['Cluster'] == 2) : ?>
+                                <label>Business & Related</label>
+                              <?php elseif ($row['Cluster'] == 3) : ?>
+                                <label>Building, Construction & Related</label>
+                                <?php else : ?>
+                                <label class="badge badge-warning">Inactive</label>
+                                
+                              <?php endif ?>
                             </td>
+
+                           
                           </tr>
                         <?php endforeach; ?>
                       </tbody>

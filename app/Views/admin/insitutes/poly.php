@@ -12,7 +12,7 @@ $email = session()->get('email')
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>All Accounts</title>
+  <title>Admin:University</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?= base_url() ?>/public/assets/vendors/iconfonts/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>/public/assets/vendors/css/vendor.bundle.base.css">
@@ -28,10 +28,6 @@ $email = session()->get('email')
 
 <body>
   <div class="container-scroller">
-
-
-    <!-- partial:../../partials/_navbar.html -->
-
     <?= $this->include('layouts/admin_navbar') ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
@@ -69,13 +65,13 @@ $email = session()->get('email')
         <div class="content-wrapper">
           <div class="page-header">
             <h3 class="page-title">
-             Enrolled Students
+             Tvet Universities
             </h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= base_url('new_student') ?>">New Student</a></li>
+                <li class="breadcrumb-item"><a href="#">Add New</a></li>
 
-                <li class="breadcrumb-item active" aria-current="page">Accounts</li>
+                <li class="breadcrumb-item active" aria-current="page">Colleges</li>
               </ol>
             </nav>
           </div>
@@ -85,39 +81,71 @@ $email = session()->get('email')
               <?= session()->get('success') ?>
             </div>
           <?php endif; ?>
+
+
           <div class="card">
             <div class="card-body">
-    
+       
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
+
+                    <?php
+                    $query = $db->query("SELECT * FROM institutions WHERE Category=4");
+                    ?>
+
                     <table id="order-listing" class="table">
                       <thead>
-                        <tr class="bg-primary text-white">
+                        <tr class="bg-info text-white">
                           <th>Id</th>
-                          <th>Name</th>
-                       
-                          <th>Phone</th>
-                          <th>Email</th>
-                          <th>Location</th>
+                          <th> Institution</th>
+                           
+                          <th>County</th>
+                          <th>Town</th>
+                          <th>Status</th>
+                          <th>Category</th>
                           <th>View</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php $i = 1;
-                         foreach ($data as $row) : ?>
+                         foreach ($query->getResult('array') as $row) :?>
                           <tr>
                             <td><?php echo $i++ ?></td>
-                            <td><?= $row['FirstName'] ?> <?= $row['SecondName'] ?>  <?= $row['LastName'] ?></td>
-                          
-                            <td><?= $row['Phone'] ?></td>
-                            <td><?= $row['Email'] ?></td>
-                            <td><?= $row['Location'] ?></td>
-                        
-                           
-                     
+                            <td><?= $row['Name'] ?></td>
+                            <td><?= $row['County']?></td>
+                            <td><?= $row['Town'] ?></td>
                             <td>
-                              <a href="<?= base_url('view_student/' . $row['StudentID']) ?>"> <i class="fa fa-eye"></i> </a>
+                              <?php if ($row['isActive'] == 1) : ?>
+                                <label class="badge badge-success">Active</label>
+                              <?php elseif ($row['isActive'] == 2) : ?>
+                                <label class="badge badge-dark">Polytechnic</label>
+                              <?php elseif ($row['isActive'] == 3) : ?>
+                                <label class="badge badge-dark">Technical Training</label>
+                                <?php else : ?>
+                                <label class="badge badge-warning">Inactive</label>
+                          
+                         
+                              <?php endif ?>
+                            </td>
+
+                            <td>
+                              <?php if ($row['Category'] == 1) : ?>
+                                <label class="badge badge-dark">University</label>
+                              <?php elseif ($row['Category'] == 2) : ?>
+                                <label class="badge badge-dark">Polytechnic</label>
+                              <?php elseif ($row['Category'] == 3) : ?>
+                                <label class="badge badge-dark">Technical Training</label>
+                              <?php elseif ($row['Category'] == 4) : ?>
+                                <label class="badge badge-primary">Colleges</label>
+                          
+                              <?php else : ?>
+                                <label class="badge badge-info">Unkown</label>
+                              <?php endif ?>
+                            </td>
+
+                            <td>
+                              <a href="<?= base_url('inst_view/' . $row['Code']) ?>"> <i class="fa fa-eye"></i>View</a>
                             </td>
                           </tr>
                         <?php endforeach; ?>

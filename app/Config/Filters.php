@@ -4,6 +4,7 @@ namespace Config;
 
 use App\Filters\AdminAuthCheck;
 use App\Filters\ClientAuthCheck;
+use App\Filters\StudentAuthCheck;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -25,6 +26,7 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         'authclient'    =>ClientAuthCheck::class,
         'authadmin'     =>AdminAuthCheck::class,
+        'authstudent'   =>StudentAuthCheck::class,
     ];
 
     /**

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -29,11 +27,11 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="<?=base_url()?>/public/assets/images/txt1.png" alt="logo">
+                <img src="<?=base_url()?>/public/assets/images/gologo.png" alt="logo">
               </div>
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
- <form class="pt-3" method="POST" action="<?=base_url('student/login')?>">
+ <form class="pt-3" method="POST" action="<?=base_url('std/login')?>">
               <?php if (isset($validation)) : ?>
       <div class="col-13" style="text-align:justify;">
         <div class="alert alert-danger" role="alert">
@@ -49,14 +47,14 @@
  <?php endif; ?>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail">Email</label>
+                  <label for="exampleInputEmail">GOTVET ID</label>
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                       <span class="input-group-text bg-transparent border-right-0">
                         <i class="fa fa-user text-primary"></i>
                       </span>
                     </div>
-                    <input type="email" name="email" class="form-control form-control-sm border-left-0" id="exampleInputEmail" placeholder="Email" required>
+                    <input type="number" name="gotvetid" class="form-control form-control-sm border-left-0" id="gotvetid" placeholder="GoTvet id" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -88,7 +86,7 @@
                 
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="<?=base_url('register_acct')?>" class="text-primary">Create</a>
+                  Don't have an account? <a href="<?=base_url('stud_register')?>" class="text-primary">Create</a>
                 </div>
               </form>
             </div>
@@ -114,6 +112,9 @@
   <script src="<?=base_url()?>/public/assets/js/settings.js"></script>
   <script src="<?=base_url()?>/public/assets/js/todolist.js"></script>
   <!-- endinject -->
+  <script src="<?=base_url()?>/public/assets/js/alerts.js"></script>
+ 
+
 </body>
 
 

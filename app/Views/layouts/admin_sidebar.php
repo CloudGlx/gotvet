@@ -53,7 +53,7 @@
              <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?= base_url('all_insitutes') ?>">View All</a></li>
 
              <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?= base_url('uni_insitutes') ?>">Tvet Universities</a></li>
-             <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?= base_url('pol_insitutes') ?>">Tvet Polytechnics</a></li>
+             <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?= base_url('poly_insitutes') ?>">Tvet Polytechnics</a></li>
              <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?= base_url('tt_insitutes') ?>">Technical Training Institutes</a></li>
 
 

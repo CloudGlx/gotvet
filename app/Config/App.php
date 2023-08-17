@@ -23,6 +23,7 @@ class App extends BaseConfig
      * environments.
      */
     public string $baseURL = 'http://192.168.6.125/gotvet/';
+    //public string $baseURL = 'https://6f3b-154-159-244-60.ngrok-free.app/gotvet/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

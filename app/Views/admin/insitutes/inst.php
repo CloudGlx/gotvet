@@ -69,7 +69,7 @@ $email = session()->get('email')
             </h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">New</a></li>
+                <li class="breadcrumb-item"><a href="#">GoTvet</a></li>
 
                 <li class="breadcrumb-item active" aria-current="page">All</li>
               </ol>
@@ -91,7 +91,7 @@ $email = session()->get('email')
                   <div class="table-responsive">
 
                     <?php
-                    $query = $db->query("SELECT * FROM institutes");
+                    $query = $db->query("SELECT * FROM institutions");
                     ?>
 
                     <table id="order-listing" class="table">
@@ -149,7 +149,7 @@ $email = session()->get('email')
                             </td>
 
                             <td>
-                              <a href="<?= base_url('view_inst/' . $row['Code']) ?>"> <i class="fa fa-eye"></i>View</a>
+                              <a href="<?= base_url('inst_view/' . $row['Code']) ?>"> <i class="fa fa-eye"></i>View</a>
                             </td>
                           </tr>
                         <?php endforeach; ?>

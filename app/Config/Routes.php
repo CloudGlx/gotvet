@@ -105,7 +105,37 @@ $routes->add('send/sigle_sms','Admin::SendSingle_sms',['filter'=>'authadmin']);/
 
 
 
+/*******************************STUDENTS ROUTES**********************************************/
+$routes->add('stud_dashboard','Student::dashboard',['filter'=>'authstudent']);
+$routes->add('stud_login','Student::loginView');
+$routes->add('test/test','Student::TestCode');
+$routes->add('std/login','AuthUser::StudentLogin');
+$routes->add('stud_register','Student::registerView');
+$routes->add('std/reg','AuthUser::StudentRegister');
+$routes->add('reg/Api','Api::registerApi');
+$routes->add('Login/Api','Api::LoginApi');
+$routes->add('CheckPayments/Api','Api::CheckPaymentsApi');
+$routes->add('student_logout','AuthUser::student_logout');
+$routes->add('update/pd','Student::Update_Personal_Details',['filter'=>'authstudent']);
+$routes->add('update_pd_details/(:any)','Student::personal_details_view/$1',['filter'=>'authstudent']);
+$routes->add('update_edu_details/(:any)','Student::Education_details_view/$1',['filter'=>'authstudent']);
+$routes->add('update/edu','Student::Update_Education_Details',['filter'=>'authstudent']);
+$routes->add('payments','Student::payments_view',['filter'=>'authstudent']);
+$routes->add('acc_activate','Student::ActivateAccount',['filter'=>'authstudent']);
+
+/*******************************PROGRAMMES ROUTES**********************************************/
+$routes->add('programmes/diploma','Programmes::diplomaprog_view',['filter'=>'authstudent']);
+$routes->add('programmes','Programmes::All_Programmes',['filter'=>'authstudent']);
+$routes->add('programmes_view/(:any)','Programmes::ProgrammesView/$1',['filter'=>'authstudent']);
+
+
+
+/*******************************MPESA/DARAJA API ROUTES**********************************************/
+$routes->add('confirmation','Payments::Confirmation_Url');
+$routes->add('validation','Payments::Validation_Url');
 /*
+
+
 
 $routes->add('all_clients','Admin::all_clients',['filter'=>'authadmin']);//CLIENT
  * --------------------------------------------------------------------

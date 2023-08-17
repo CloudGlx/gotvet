@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class StudentsModel extends Model
+class EducationModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'students';
+    protected $table            = 'EducationDetails';
     protected $primaryKey       = 'GotvetId';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -15,9 +15,9 @@ class StudentsModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'FirstName', 'SecondName', 'LastName', 'Phone', 'Email', 'Citizenship', 'Gender', 'County', 'Town','Grd_Name','Grd_Phone','KcseYear', 'GotvetId',
-        'Idnumber', 'KcseIndex', 'isvarified', 'isenrolled', 'isprofilecompleted', 'FormerSec', 'FormerPrimay', 'KcpeResults',
-        'KcseResults', 'CollageSelected', 'StudentID', 'DateCreated', 'LastLogin', 'UpdateLevel','Token', 'Password'
+        'GotvetId', 'KcseYear', 'KcseMeanGrade', 'KcpeMeanGrade',
+        'KcseIndex', 'FormerSec', 'FormerPrimay', 'ENG', 'KIS', 'MATH', 'BIO', 'PHY',
+        'CHEM', 'HISTO', 'GEO', 'CRE', 'HOMESCIENCE', 'AGRI', 'COMP', 'BUSINESS','FirstName'
     ];
 
     // Dates

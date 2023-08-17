@@ -6,6 +6,17 @@ function randomNum()
     return $code;
 }
 
+//The code start with 254 then 5 numbers
+function GotvetId()
+{
+    $code = substr(str_shuffle('1234567890'), 5);
+    $start="254";
+    $newcode=$start.$code;
+   intval($newcode);
+
+    return $newcode;
+}
+
 function filecode()
 {
     $code = substr(str_shuffle('1234567890'), 5);

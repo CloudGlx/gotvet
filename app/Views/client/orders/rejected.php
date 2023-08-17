@@ -105,8 +105,7 @@ $query =$db->query("SELECT * FROM orders WHERE ClientId=$id AND OrderStatus='2'"
                             <th>Acad Level</th>
                             <th>PaperType</th>
                             <th>Buget</th>
-                     
-                           <th>View</th>
+                            <th>View</th>
                             </tr>
                       </thead>
                       <tbody>
@@ -118,18 +117,14 @@ $query =$db->query("SELECT * FROM orders WHERE ClientId=$id AND OrderStatus='2'"
     <td><?= $row['AcademicLevel'] ?></td>
     <td><?= $row['PaperType'] ?></td>
     <td><?= $row['ApproximatePrice'] ?></td>
-
-
-    <td>
+ <td>
   <a href="<?= base_url('orderview/' . $row['OrderId']) ?>"> <i class="fa fa-eye"></i> </a>
     </td>
     </tr>
 <?php endforeach; ?>                    
                       </tbody>
                     </table>
-
-                    
-                  </div>
+         </div>
                 </div>
               </div>
             </div>

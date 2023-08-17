@@ -99,7 +99,7 @@ $id = session()->get('regnum');
                                                 Insitutes
                                             </p>
                                             <h2><?php
-                                                $query = $db->query('SELECT * FROM institutes');
+                                                $query = $db->query('SELECT * FROM institutions');
                                                 echo $query->getNumRows();
                                                 ?></h2>
                                             <a href="<?= base_url('all_insitutes') ?>"> <label class="badge badge-outline-danger badge-pill">View</label></a>

@@ -1,0 +1,28 @@
+TransactionType: 
+TransID: FDXEW547RG
+TransTime: 20230817164155
+TransAmount: 210
+BusinessShortCode: 700000
+BillRefNumber: 
+InvoiceNumber: 
+OrgAccountBalance: 
+ThirdPartyTransID: 
+MSISDN: 2547 ***** 149
+FirstName: John
+MiddleName: 
+LastName: 
+
+TransactionType: 
+TransID: 1UZQWNAGEV
+TransTime: 20230817164843
+TransAmount: 210
+BusinessShortCode: 700000
+BillRefNumber: 
+InvoiceNumber: 
+OrgAccountBalance: 
+ThirdPartyTransID: 
+MSISDN: 2547 ***** 149
+FirstName: John
+MiddleName: 
+LastName: 
+

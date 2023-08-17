@@ -33,13 +33,15 @@ class Admin extends BaseController
 
     public function poly_insitutes()
     {
-        return view('admin/insitutes/pol');
+        return view('admin/insitutes/poly');
     }
 
     public function tt_insitutes()
     {
         return view('admin/insitutes/tt');
     }
+
+ 
 //view
     public function inst_singleView($tid){
         $req = new InsitutesModel();
@@ -84,6 +86,8 @@ class Admin extends BaseController
         $data['data'] = $request->find($tid);
         return view('admin/orders/vieworder', $data);
     }
+
+   
 
     //UPDATE STUDENT STSUS
     public function student_status()

@@ -1,0 +1,28 @@
+TransactionType: 
+TransID: 9KJCNDPO5G
+TransTime: 20230817142457
+TransAmount: 10
+BusinessShortCode: 603421
+BillRefNumber: 
+InvoiceNumber: 
+OrgAccountBalance: 
+ThirdPartyTransID: 
+MSISDN: 2547 ***** 149
+FirstName: John
+MiddleName: 
+LastName: 
+
+TransactionType: 
+TransID: CYDBHJRZL1
+TransTime: 20230817142644
+TransAmount: 210
+BusinessShortCode: 700000
+BillRefNumber: 
+InvoiceNumber: 
+OrgAccountBalance: 
+ThirdPartyTransID: 
+MSISDN: 2547 ***** 149
+FirstName: John
+MiddleName: 
+LastName: 
+
