@@ -75,7 +75,8 @@
                       Keep me signed in
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                 
+                  <lable class="auth-link text-black" data-toggle="modal" data-target="#password" data-whatever="@getbootstrap">Forgot password?</lable>
                 </div>
                 <div class="my-3">
                     <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">LOGIN</button>
@@ -100,6 +101,57 @@
     </div>
     <!-- page-body-wrapper ends -->
   </div>
+
+
+
+
+
+  <div class="modal fade" id="password" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">Password Reset</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <OL>
+            <li>Enter your GOTVETID</li>
+           
+            <span style="font-weight: bolder; color:red;">A new password will be sent to the phone number you used during the account creation process, via SMS.
+            </span>
+          </OL>
+
+
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">GOTVETID:</label>
+
+              <input type="number" name="gotvetid" class="form-control form-control-sm" id="recipient-name" required>
+            </div>
+            <button type="submit" name="passreset" class="btn btn-success">Submit</button>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="<?=base_url()?>/public/assets/vendors/js/vendor.bundle.base.js"></script>

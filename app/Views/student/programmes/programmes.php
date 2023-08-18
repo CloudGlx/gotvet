@@ -114,13 +114,53 @@ $gotvetid = session()->get('GotvetId');
                                 <label>Business & Related</label>
                               <?php elseif ($row['Cluster'] == 3) : ?>
                                 <label>Building, Construction & Related</label>
+                                <?php elseif ($row['Cluster'] == 4) : ?>
+                                <label>Engineering, Technology & Related</label>
+                                <?php elseif ($row['Cluster'] == 5) : ?>
+                                <label>Environmental Sciences</label>
+                                <?php elseif ($row['Cluster'] == 6) : ?>
+                                <label>Applied Sciences</label>
+                                <?php elseif ($row['Cluster'] == 7) : ?>
+                                <label>Health Sciences & Related</label>
+                                <?php elseif ($row['Cluster'] == 8) : ?>
+                                <label>Food Science & Related</label>
+                                <?php elseif ($row['Cluster'] == 9) : ?>
+                                <label>Nutrition & Dietetics</label>
+                                <?php elseif ($row['Cluster'] == 10) : ?>
+                                <label>Social Sciences</label>
+                                <?php elseif ($row['Cluster'] == 11) : ?>
+                                <label>Computing, IT & Related</label>
+                                <?php elseif ($row['Cluster'] == 12) : ?>
+                                <label>Clothing, Fashion & Textile</label>
+                                <?php elseif ($row['Cluster'] == 13) : ?>
+                                <label>Agricultural Sciences & Relate</label>
+                                <?php elseif ($row['Cluster'] == 14) : ?>
+                                <label>Natural Sciences & Related</label>
+                                <?php elseif ($row['Cluster'] == 15) : ?>
+                                <label>Tax & Custom Administration</label>
+                                <?php elseif ($row['Cluster'] == 16) : ?>
+                                <label>Graphics, Media Studies, Media Production & Related</label>
+                                <?php elseif ($row['Cluster'] == 17) : ?>
+                                <label>Hospitality, Hotel, Tourism, & Related</label>
+                                <?php elseif ($row['Cluster'] == 18) : ?>
+                                <label>Technical Courses</label>
+                                <?php elseif ($row['Cluster'] == 19) : ?>
+                                <label>Animal Health and Related</label>
+                                <?php elseif ($row['Cluster'] == 20) : ?>
+                                <label>Hair Dressing & Beauty Therapy</label>
+                                <?php elseif ($row['Cluster'] == 21) : ?>
+                                <label>Library & Information Science</label>
+                                <?php elseif ($row['Cluster'] == 22) : ?>
+                                <label>Primary & Early Childhood Teacher Education</label>
+                                <?php elseif ($row['Cluster'] == 23) : ?>
+                                <label>Animal Health and Related</label>
+                                <?php elseif ($row['Cluster'] == 0) : ?>
+                                <label>Law</label>
                                 <?php else : ?>
                                 <label class="badge badge-warning">Inactive</label>
                                 
                               <?php endif ?>
-                            </td>
-
-                           
+                            </td>                          
                           </tr>
                         <?php endforeach; ?>
                       </tbody>

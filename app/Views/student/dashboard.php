@@ -13,6 +13,7 @@ $isprofilecomplete = $row->isprofilecompleted;
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -146,13 +147,10 @@ $isprofilecomplete = $row->isprofilecompleted;
                             <i class="icon-sm fa fa-credit-card mr-2"></i>
                             Payments
                           </p>
-
-
                           <lable type="button" class="badge badge-outline-success badge-pill" data-toggle="modal" data-target="#payments" data-whatever="@getbootstrap">Pay Activation fee</lable>
-
                         </div>
                       <?php endif ?>
-                  
+
 
                     </div>
                   </div>
@@ -182,7 +180,7 @@ $isprofilecomplete = $row->isprofilecompleted;
                             <th>GotvetID</th>
                             <th>Phone No</th>
                             <th>Date Created</th>
-                         
+
                           </tr>
                         </thead>
 
@@ -195,8 +193,6 @@ $isprofilecomplete = $row->isprofilecompleted;
                               <td><?= $row['GotvetId'] ?></td>
                               <td><?= $row['Phone'] ?></td>
                               <td><?= $row['DateCreated'] ?></td>
-                           
-                             
                             </tr>
                           <?php endforeach; ?>
                         </tbody>
@@ -208,11 +204,7 @@ $isprofilecomplete = $row->isprofilecompleted;
                 </div>
               </div>
 
-
-
-
-
-          </div>
+            </div>
           </div>
         </div>
 
@@ -239,7 +231,7 @@ $isprofilecomplete = $row->isprofilecompleted;
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
                       <div class="statistics-item">
                         <p>
-                          <i class="icon-sm fa fa-graduation-cap mr-2"></i> 
+                          <i class="icon-sm fa fa-graduation-cap mr-2"></i>
 
                           Public Universities
                         </p>
@@ -357,45 +349,45 @@ $isprofilecomplete = $row->isprofilecompleted;
                   </div>
                 </div>
               </div>
-                    <?php
-                      $gotvetid = session()->get('GotvetId');
-                      $query = $db->query("SELECT * FROM EducationDetails WHERE Gotvetid=" . $gotvetid . "");
-                      ?>
+              <?php
+              $gotvetid = session()->get('GotvetId');
+              $query = $db->query("SELECT * FROM EducationDetails WHERE Gotvetid=" . $gotvetid . "");
+              ?>
               <div class="col-md-4 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Education</h4>
-                            <table class="table">
-                        <tbody>
-                          <?php $i = 1;
-                          foreach ($query->getResult('array') as $row) : ?>
-                            <tr>
-                              <td style="font-weight: bold;">MEAN GRADE:</td>
-                              <td><?= $row['KcseMeanGrade'] ?></td>
-                            </tr>
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Education</h4>
+                    <table class="table">
+                      <tbody>
+                        <?php $i = 1;
+                        foreach ($query->getResult('array') as $row) : ?>
+                          <tr>
+                            <td style="font-weight: bold;">MEAN GRADE:</td>
+                            <td><?= $row['KcseMeanGrade'] ?></td>
+                          </tr>
 
-                            <tr>
-                              <td style="font-weight: bold;">KCSE YEAR: </td>
-                              <td><?= $row['KcseYear'] ?></td>
-                            </tr>
+                          <tr>
+                            <td style="font-weight: bold;">KCSE YEAR: </td>
+                            <td><?= $row['KcseYear'] ?></td>
+                          </tr>
 
-                            <tr>
-                              <td style="font-weight: bold;">Index Number: </td>
-                              <td><?= $row['KcseIndex'] ?></td>
-                            </tr>
-
-
-
-                          <?php endforeach; ?>
-                        </tbody>
+                          <tr>
+                            <td style="font-weight: bold;">Index Number: </td>
+                            <td><?= $row['KcseIndex'] ?></td>
+                          </tr>
 
 
-                      </table>
-                           
-                        </div>
-                    </div>
+
+                        <?php endforeach; ?>
+                      </tbody>
+
+
+                    </table>
+
+                  </div>
                 </div>
-      
+              </div>
+
 
             </div>
           </div>
@@ -427,8 +419,8 @@ $isprofilecomplete = $row->isprofilecompleted;
             <li>For the Account Number, enter your GOTVET ID: <span style="font-weight: bold;"> <?php echo $gotvetid; ?></span></li>
             <li>Enter Amount: <span style="color:green; font-weight:bold;">KSH 500</span>
             <li>Enter your M-PESA PIN and Send.</li>
-            <span style="font-weight: bolder; color:red;">Upon successful payment, you'll get an activation code via SMS from "GOTVET". Enter it below and click "Activate". 
-            If no code received, use M-Pesa confirmation code.</span>
+            <span style="font-weight: bolder; color:red;">Upon successful payment, you'll get an activation code via SMS from "GOTVET". Enter it below and click "Activate".
+              If no code received, use M-Pesa confirmation code.</span>
           </OL>
 
 

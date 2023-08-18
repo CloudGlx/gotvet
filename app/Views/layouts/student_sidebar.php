@@ -39,7 +39,7 @@
               </ul>
               </div>
           </li>
-
+<!--
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="far fa-compass menu-icon"></i>
@@ -54,6 +54,8 @@
               </ul>
               </div>
           </li>
+-->
+
           <li class="nav-item d-none d-lg-block">
             <a class="nav-link" data-toggle="collapse" href="#sidebar-layouts" aria-expanded="false" aria-controls="sidebar-layouts">
               <i class="fas fa-columns menu-icon"></i>
