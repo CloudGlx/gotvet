@@ -72,7 +72,13 @@ define('EMAILPASS','44UEn2KRy~ZP');
 define('ADMINEMAIL','galaxywebstech@gmail.com');
 define('SERVEREMAIL','info@cloudgalaxytech.com');
 define('EMAILHOST','mail.cloudgalaxytech.com');
-define('ADMINPHONE','254716815356');
+
+define('ADMIN1PHONE','0721544830');
+define('ADMIN2PHONE','254716815356');
+define('ADMIN3PHONE','0716915222');
+define('SMSAPIKEY','119323ba4448f39ef6955e9c144ef496');
+define('SMSPARTINERID','7797');
+
 
 
 

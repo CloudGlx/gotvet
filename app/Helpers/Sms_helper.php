@@ -4,8 +4,8 @@
    
             $data= [
         
-                "apikey"        => "119323ba4448f39ef6955e9c144ef496",
-                "partnerID"    => "7797",  //6356
+                "apikey"        =>SMSAPIKEY,
+                "partnerID"    => SMSPARTINERID,  //6356
                 "message"      => $body,
                 "shortcode"    => "TextSMS",
                 "mobile"       => $phone

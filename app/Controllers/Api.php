@@ -30,7 +30,7 @@ class Api extends BaseController
     $studentPhone = $res['Phone'];
     $GotvetId = $res['GotvetId'];
     $link = "http://gotvet.gtntv.co.ke/studen_login";
-    $support = "0712345678";
+    $support = ADMIN1PHONE;
     //sms body
     function SmsBody($FirstName, $GotvetId, $link, $support)
     {
