@@ -35,7 +35,7 @@
                 <li class="nav-item"> <a class="nav-link" href="<?=base_url('all_students')?>">All Accounts </a></li>
              
               
-                <li class="nav-item"> <a class="nav-link" href="<?=base_url('enrolled')?>"> Enrolled Students</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?=base_url('enrolled')?>"> Active Accounts</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?=base_url('approved')?>">Approved</a></li>
               </ul>
             </div>

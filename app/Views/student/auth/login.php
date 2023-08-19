@@ -18,7 +18,6 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="<?=base_url()?>/public/assets/images/favicon.png" />
 </head>
-
 <body>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -32,7 +31,7 @@
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
  <form class="pt-3" method="POST" action="<?=base_url('std/login')?>">
-              <?php if (isset($validation)) : ?>
+    <?php if (isset($validation)) : ?>
       <div class="col-13" style="text-align:justify;">
         <div class="alert alert-danger" role="alert">
           <?= $validation->listErrors() ?>

@@ -19,12 +19,8 @@
     <link rel="shortcut icon" href="" />
 </head>
 
-
 <body>
     <div class="container-scroller">
-
-
-
         <?= $this->include('layouts/student_navbar') ?>
 
         <div class="container-fluid page-body-wrapper">
@@ -55,8 +51,7 @@
 
             <?= $this->include('layouts/leftbar') ?>
             <?= $this->include('layouts/student_sidebar') ?>
-
-            <div class="main-panel">
+           <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="col-12 grid-margin">
                 <div class="card">
@@ -72,7 +67,6 @@
                         </div>
                     </div>
                 </div>
-
                 <?= $this->include('layouts/footer') ?>
                 <!-- partial -->
             </div>

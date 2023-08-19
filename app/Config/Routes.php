@@ -63,7 +63,6 @@ $routes->add('delete_file/(:num)','Orders::files_delete/$1',['filter'=>'authclie
 $routes->add('adminlogin','AuthAdmin::AdminLogin');
 $routes->add('admin','Admin::dashboard',['filter'=>'authadmin']);
 
-
 /*************ORDERS ROUTES  ADMIN*/
 $routes->add('all_orders','Admin::admin_allorders',['filter'=>'authadmin']);
 $routes->add('pending_orders','Admin::Pending_Orders',['filter'=>'authadmin']);
@@ -103,8 +102,6 @@ $routes->add('view_student/(:num)','Admin::OneStudentView/$1',['filter'=>'authad
 $routes->add('std/status','Admin::student_status',['filter'=>'authadmin']);//student update status
 $routes->add('send/sigle_sms','Admin::SendSingle_sms',['filter'=>'authadmin']);//send sms
 
-
-
 /*******************************STUDENTS ROUTES**********************************************/
 $routes->add('stud_dashboard','Student::dashboard',['filter'=>'authstudent']);
 $routes->add('stud_login','Student::loginView');
@@ -127,15 +124,10 @@ $routes->add('acc_activate','Student::ActivateAccount',['filter'=>'authstudent']
 $routes->add('programmes/diploma','Programmes::diplomaprog_view',['filter'=>'authstudent']);
 $routes->add('programmes','Programmes::All_Programmes',['filter'=>'authstudent']);
 $routes->add('programmes_view/(:any)','Programmes::ProgrammesView/$1',['filter'=>'authstudent']);
-
-
-
 /*******************************MPESA/DARAJA API ROUTES**********************************************/
 $routes->add('confirmation','Payments::Confirmation_Url');
 $routes->add('validation','Payments::Validation_Url');
 /*
-
-
 
 $routes->add('all_clients','Admin::all_clients',['filter'=>'authadmin']);//CLIENT
  * --------------------------------------------------------------------

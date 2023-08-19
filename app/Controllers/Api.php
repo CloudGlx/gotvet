@@ -28,6 +28,8 @@ class Api extends BaseController
     $FirstName = $res['FirstName'];
     $Email = $res['Email'];
     $studentPhone = $res['Phone'];
+   
+
     $GotvetId = $res['GotvetId'];
     $link = "http://gotvet.gtntv.co.ke/studen_login";
     $support = ADMIN1PHONE;
@@ -49,10 +51,11 @@ class Api extends BaseController
     $ReCode = $res['responses'][0]['response-code'];
     //if sms sent
     if ($ReCode == 200) {
-      echo $response;
+
+    //  echo $response;
     } else {
       //send Email
-      echo $error;
+     // echo $error;
     }
   }
 

@@ -72,7 +72,7 @@
                         <i class="far fa-envelope-open text-primary"></i>
                       </span>
                     </div>
-                    <input type="email" name="Email" class="form-control form-control-sm border-left-0" placeholder="Email" required>
+                    <input type="email" name="Email" class="form-control form-control-sm border-left-0" placeholder="Email">
                   </div>
                 </div>
 

@@ -15,7 +15,7 @@ class AuthUser extends BaseController
 
   public function __construct()
   {
-    helper(['Code_helper', 'Email_helper', 'Sms_helper', 'text', 'url', 'Webhook_helper']);
+    helper(['Code_helper', 'Email_helper', 'Sms_helper', 'text', 'url', 'Webhook_helper', 'Functions_helper']);
   }
 
   public function StudentLoginView()
@@ -81,8 +81,8 @@ class AuthUser extends BaseController
     $rules = [
       'First_Name'         =>  'required|min_length[3]',
       'Second_Name'        =>  'required|min_length[3]',
-      'Email'              =>  'required|valid_email|is_unique[students.Email]',
-      'Phone'              =>  'required|is_unique[students.Phone]|min_length[10]',
+
+      'Phone'              =>  'required|is_unique[students.Phone]|max_length[10]',
       'Password'           =>  'required|min_length[4]|max_length[20]',
       'Confirm_Password'   =>  'required|matches[Password]'
 
@@ -102,13 +102,12 @@ class AuthUser extends BaseController
       $date = new Time('now', 'Africa/Nairobi', 'en_US');
       $updatelevel=0;
 
-      $fname=strtoupper($fname);
-      $sname=strtoupper($sname);
-//MAKE PHONE 
-$phone = (substr($phone, 0, 1) == "+") ? str_replace("+", "", $phone) : $phone;
-$phone = (substr($phone, 0, 1) == "0") ? preg_replace("/^0/", "254", $phone) : $phone;
-$phone = (substr($phone, 0, 1) == "7") ? "254{$phone}" : $phone;
+     // Convert the first name to uppercase
+$fname = strtoupper($fname);
+// Convert the last name to uppercase
+$sname = strtoupper($sname);
 
+//$phone=modifyPhoneNumber($phone);
 
       //HASH USER PASSWORD
       $passhash = new Hash();
@@ -156,14 +155,11 @@ $query=$edu->insert($edudata);
     
       // Request successful
       return redirect()->to('stud_login')->with('success', 'Account successfully created. SMS sent  to your provided phone number with your Gotvet ID.');
- 
-     
+    
      // return redirect()->to('stud_login')->with('success', 'Account Created successfully');
 }
     
   }
-
-
   //REGISTER USER VIEW
   public function userRegisterView()
   {
@@ -177,7 +173,6 @@ $query=$edu->insert($edudata);
 
     return view('client/forgotpass');
   }
-
 
   public function student_logout()
   {

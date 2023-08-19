@@ -157,8 +157,6 @@ $isprofilecomplete = $row->isprofilecompleted;
                 </div>
               </div>
             </div>
-
-
             <div class="row">
               <div class="col-md-8 grid-margin stretch-card">
                 <div class="card">
@@ -196,8 +194,6 @@ $isprofilecomplete = $row->isprofilecompleted;
                             </tr>
                           <?php endforeach; ?>
                         </tbody>
-
-
                       </table>
                     </div>
                   </div>
@@ -342,8 +338,6 @@ $isprofilecomplete = $row->isprofilecompleted;
 
                           <?php endforeach; ?>
                         </tbody>
-
-
                       </table>
                     </div>
                   </div>
@@ -375,13 +369,8 @@ $isprofilecomplete = $row->isprofilecompleted;
                             <td style="font-weight: bold;">Index Number: </td>
                             <td><?= $row['KcseIndex'] ?></td>
                           </tr>
-
-
-
                         <?php endforeach; ?>
                       </tbody>
-
-
                     </table>
 
                   </div>
@@ -396,10 +385,7 @@ $isprofilecomplete = $row->isprofilecompleted;
 
     </div>
   </div>
-
   </div>
-
-
   <div class="modal fade" id="payments" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -438,13 +424,9 @@ $isprofilecomplete = $row->isprofilecompleted;
 
           <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
         </div>
-
-
       </div>
     </div>
   </div>
-
-
   <!-- content-wrapper ends -->
   <!-- partial:partials/_footer.html -->
   <?= $this->include('layouts/footer') ?>

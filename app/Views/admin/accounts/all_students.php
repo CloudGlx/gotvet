@@ -98,8 +98,8 @@ $email = session()->get('email')
                           <th>Name</th>
                        
                           <th>Phone</th>
-                          <th>Email</th>
-                          <th>Location</th>
+                          <th>GoTvetId</th>
+                          <th>DateCreated</th>
                           <th>View</th>
                         </tr>
                       </thead>
@@ -111,13 +111,13 @@ $email = session()->get('email')
                             <td><?= $row['FirstName'] ?> <?= $row['SecondName'] ?>  <?= $row['LastName'] ?></td>
                           
                             <td><?= $row['Phone'] ?></td>
-                            <td><?= $row['Email'] ?></td>
-                            <td><?= $row['Location'] ?></td>
+                            <td><?= $row['GotvetId'] ?></td>
+                            <td><?= $row['DateCreated'] ?></td>
                         
                            
                      
                             <td>
-                              <a href="<?= base_url('view_student/' . $row['StudentID']) ?>"> <i class="fa fa-eye"></i> </a>
+                              <a href="<?= base_url('view_student/' . $row['GotvetId']) ?>"> <i class="fa fa-eye"></i> </a>
                             </td>
                           </tr>
                         <?php endforeach; ?>
